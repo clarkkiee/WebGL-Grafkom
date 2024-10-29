@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGL Lighting Example</title>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="gl-matrix-min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body onload="main()">
+    <canvas id="myCanvas" width="750" height="650" style="border: 1px solid black;"></canvas>
+
+    <!-- Vertex Shader Code -->
+    <script id="vertexShaderCode" type="x-shader/x-vertex">
+        attribute vec3 a_Position;
+        attribute vec3 a_Color;
+        attribute vec3 a_Normal;
+        uniform mat4 u_Model;
+        uniform mat4 u_View;
+        uniform mat4 u_Projection;
+        uniform mat3 u_NormalMatrix;
+        varying vec3 v_Position;
+        varying vec3 v_Color;
+        varying vec3 v_Normal;
+
+        void main() {
+            gl_Position = u_Projection * u_View * u_Model * vec4(a_Position, 1.0);
+            v_Position = (u_Model * vec4(a_Position, 1.0)).xyz;
+            v_Color = a_Color;
+            v_Normal = normalize(u_NormalMatrix * a_Normal);
+        }
+    </script>
+</body>
+</html>

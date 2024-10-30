@@ -8,8 +8,16 @@
     <script type="text/javascript" src="gl-matrix-min.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </head>
-<body onload="main()">
-    <canvas id="myCanvas" width="750" height="650" style="border: 1px solid black;"></canvas>
+<body onload="main()" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; gap: 24px;">
+
+    <div>
+        <h1>Computer Graphics Assignment - Draw an Object using WebGL</h1>
+    
+        <h2>Nama: Aloysius Juan Farrel Lumentut</h2>
+        <h2>NRP: 5025221176</h2>
+    </div>
+
+    <canvas id="myCanvas" width="750" height="650" style="border: 1px solid black; "></canvas>
 
     <!-- Vertex Shader Code -->
     <script id="vertexShaderCode" type="x-shader/x-vertex">

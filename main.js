@@ -39,7 +39,7 @@ function main() {
         uniform vec3 u_DiffusePosition;
         void main() {
             vec3 lightDir = normalize(u_DiffusePosition - v_Position);
-            float diffuseFactor = max(dot(v_Normal, lightDir), 0.0);
+            float diffuseFactor = max(dot(v_Normal, lightDir), 0.1);
             vec3 diffuse = u_DiffuseColor * v_Color * diffuseFactor;
             vec3 ambient = u_AmbientColor * v_Color;
             gl_FragColor = vec4(ambient + diffuse, 1.0);
@@ -83,8 +83,8 @@ function main() {
 
     // Set light color and position
     gl.uniform3fv(uAmbientColor, [0.5, 0.5, 0.5]);
-    gl.uniform3fv(uDiffuseColor, [0.9, 0.9, 0.9]);
-    gl.uniform3fv(uDiffusePosition, [0.0, 0.5, 1.0]);
+    gl.uniform3fv(uDiffuseColor, [0.7, 0.7, 0.7]);
+    gl.uniform3fv(uDiffusePosition, [1.0, 1.0, 1.0]);
     
     // Set up matrices
     var model = glMatrix.mat4.create();
@@ -111,7 +111,6 @@ function main() {
         gl.uniformMatrix3fv(uNormalMatrix, false, normalMatrix);
 
         // Clear and draw
-        gl.clearColor(1.0, 1.0, 1.0, 1.0);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
         gl.enable(gl.DEPTH_TEST);
 

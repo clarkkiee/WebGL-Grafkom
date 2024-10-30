@@ -82,9 +82,9 @@ function main() {
     var uDiffusePosition = gl.getUniformLocation(shaderProgram, "u_DiffusePosition");
 
     // Set light color and position
-    gl.uniform3fv(uAmbientColor, [0.5, 0.5, 0.5]);
+    gl.uniform3fv(uAmbientColor, [0.4, 0.4, 0.4]);
     gl.uniform3fv(uDiffuseColor, [0.7, 0.7, 0.7]);
-    gl.uniform3fv(uDiffusePosition, [1.0, 1.0, 1.0]);
+    gl.uniform3fv(uDiffusePosition, [1.0, 1.0, -1.0]);
     
     // Set up matrices
     var model = glMatrix.mat4.create();
@@ -94,7 +94,7 @@ function main() {
     glMatrix.mat4.perspective(projection, glMatrix.glMatrix.toRadian(90), canvas.width / canvas.height, 0.5, 10.0);
 
     // Rotation angle
-    var theta = glMatrix.glMatrix.toRadian(1);
+    var theta = glMatrix.glMatrix.toRadian(0.5);
 
     function render() {
         // Update model rotation

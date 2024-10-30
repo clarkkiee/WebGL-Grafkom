@@ -82,8 +82,8 @@ function main() {
     var uDiffusePosition = gl.getUniformLocation(shaderProgram, "u_DiffusePosition");
 
     // Set light color and position
-    gl.uniform3fv(uAmbientColor, [0.4, 0.4, 0.4]);
-    gl.uniform3fv(uDiffuseColor, [0.7, 0.7, 0.7]);
+    gl.uniform3fv(uAmbientColor, [0.5, 0.5, 0.5]);
+    gl.uniform3fv(uDiffuseColor, [0.8, 0.8, 0.8]);
     gl.uniform3fv(uDiffusePosition, [1.0, 1.0, -1.0]);
     
     // Set up matrices

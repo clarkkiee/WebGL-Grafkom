@@ -98,7 +98,9 @@ function main() {
 
     function render() {
         // Update model rotation
-        glMatrix.mat4.rotate(model, model, theta, [1.0, 1.0, 1.0]);
+        if(!freeze){
+            glMatrix.mat4.rotate(model, model, theta, [1.0, 1.0, 1.0]);
+        }
 
         // Calculate normal matrix for lighting
         var normalMatrix = glMatrix.mat3.create();
